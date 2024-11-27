@@ -31,6 +31,7 @@ def ValiFormat(IP):
         print(f"错误：{e}")
         return Prompt()
 
+
 #判断ip类型并返回
 
 
