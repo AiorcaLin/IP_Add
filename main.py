@@ -9,8 +9,9 @@ def Prompt():
              print("程序已退出。")
              exit()
          else :
-             Ip_Add=inp.split('.')
-             ValiFormat()
+             IpAdd=inp.split('.')
+             Ip_Add_Int=ValiFormat(IpAdd)
+             return Ip_Add_Int
     except ValueError:
         print("输入无效，请输入一个IP")
         Prompt()
@@ -33,14 +34,33 @@ def ValiFormat(IP):
 
 
 #判断ip类型并返回
+def IP_Type(IP):
+    first_octet=IP[0]
+    if first_octet<128:
+        return 'A'
+    elif first_octet<192:
+        return 'B'
+    elif first_octet<224:
+        return 'C'
+    elif first_octet<240:
+        return 'D'
+    else:
+        return 'E'
 
 
 #输出ip类型
+def Output(IPType):
+    print(f"你输入的IP地址类型为：{IPType}")
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     #IP_Add=Prompt()
-    IP=['100','100','100','100']
+    #IP=['100','100','100','100']
+    IP=Prompt()
+    IPType=IP_Type(IP)
+    Output(IPType)
+
 
 
 
